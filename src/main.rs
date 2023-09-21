@@ -92,7 +92,7 @@ trait LayerShell {
     fn set_anchor(&self, edge: gtk4_layer_shell::Edge, anchor_to_edge: bool);
 }
 
-impl LayerShell for gtk::Window {
+impl LayerShell for relm4::gtk4::Window {
     fn init_layer_shell(&self) {
         gtk4_layer_shell::init_for_window(&self);
     }
