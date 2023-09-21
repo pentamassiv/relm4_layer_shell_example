@@ -19,7 +19,7 @@ impl SimpleComponent for App {
 
     view! {
         gtk::Window {
-            init_for_window: (),
+            init_layer_shell: (),
             set_layer: gtk4_layer_shell::Layer::Overlay,
             auto_exclusive_zone_enable: (),
             set_margin: (gtk4_layer_shell::Edge::Left, 40),
@@ -85,13 +85,13 @@ fn main() {
 }
 
 trait LayerShell: IsA<gtk::Window> {
-    fn init_layer_shell(&self, _: ()) {
+    fn init_layer_shell(&self) {
         gtk4_layer_shell::init_for_window(self);
     }
     fn set_layer(&self, layer: gtk4_layer_shell::Layer) {
         gtk4_layer_shell::set_layer(self, layer);
     }
-    fn auto_exclusive_zone_enable(&self, _: ()) {
+    fn auto_exclusive_zone_enable(&self) {
         gtk4_layer_shell::auto_exclusive_zone_enable(self);
     }
     fn set_margin(&self, edge: gtk4_layer_shell::Edge, margin_size: i32) {
