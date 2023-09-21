@@ -86,19 +86,19 @@ fn main() {
 
 trait LayerShell: IsA<gtk::Window> {
     fn init_layer_shell(&self) {
-        gtk4_layer_shell::init_for_window(&self);
+        gtk4_layer_shell::init_for_window(self);
     }
     fn set_layer(&self, layer: gtk4_layer_shell::Layer) {
-        gtk4_layer_shell::set_layer(&self, layer);
+        gtk4_layer_shell::set_layer(self, layer);
     }
     fn auto_exclusive_zone_enable(&self) {
-        gtk4_layer_shell::auto_exclusive_zone_enable(&self);
+        gtk4_layer_shell::auto_exclusive_zone_enable(self);
     }
     fn set_margin(&self, edge: gtk4_layer_shell::Edge, margin_size: i32) {
-        gtk4_layer_shell::set_margin(&self, edge, margin_size);
+        gtk4_layer_shell::set_margin(self, edge, margin_size);
     }
     fn set_anchor(&self, edge: gtk4_layer_shell::Edge, anchor_to_edge: bool) {
-        gtk4_layer_shell::set_anchor(&self, edge, anchor_to_edge);
+        gtk4_layer_shell::set_anchor(self, edge, anchor_to_edge);
     }
 }
 
