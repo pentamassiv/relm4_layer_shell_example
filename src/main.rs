@@ -102,4 +102,4 @@ trait LayerShell: IsA<gtk::Window> {
     }
 }
 
-impl LayerShell for relm4::gtk4::Window {}
+impl LayerShell for gtk4::Window {}
