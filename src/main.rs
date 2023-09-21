@@ -53,14 +53,6 @@ impl SimpleComponent for App {
         }
     }
 
-    fn init_root() -> Self::Root {
-        gtk::Window::builder()
-            .title("Simple app")
-            .default_width(300)
-            .default_height(100)
-            .build()
-    }
-
     // Initialize the component.
     fn init(
         counter: Self::Init,
@@ -108,12 +100,12 @@ impl LayerShell for gtk::Window {
         gtk4_layer_shell::set_layer(&self, layer);
     }
     fn auto_exclusive_zone_enable(&self) {
-        gtk4_layer_shell::auto_exclusive_zone_enable(&window);
+        gtk4_layer_shell::auto_exclusive_zone_enable(&self);
     }
     fn set_margin(&self, edge: gtk4_layer_shell::Edge, margin_size: i32) {
-        gtk4_layer_shell::set_margin(&window, edge, margin_size);
+        gtk4_layer_shell::set_margin(&self, edge, margin_size);
     }
     fn set_anchor(&self, edge: gtk4_layer_shell::Edge, anchor_to_edge: bool) {
-        gtk4_layer_shell::set_anchor(&window, edge, anchor_to_edge);
+        gtk4_layer_shell::set_anchor(&self, edge, anchor_to_edge);
     }
 }
