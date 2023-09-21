@@ -84,15 +84,7 @@ fn main() {
     app.run::<App>(0);
 }
 
-trait LayerShell {
-    fn init_layer_shell(&self);
-    fn set_layer(&self, layer: gtk4_layer_shell::Layer);
-    fn auto_exclusive_zone_enable(&self);
-    fn set_margin(&self, edge: gtk4_layer_shell::Edge, margin_size: i32);
-    fn set_anchor(&self, edge: gtk4_layer_shell::Edge, anchor_to_edge: bool);
-}
-
-impl LayerShell for relm4::gtk4::Window {
+trait LayerShell: IsA<gtk::Window> {
     fn init_layer_shell(&self) {
         gtk4_layer_shell::init_for_window(&self);
     }
@@ -109,3 +101,5 @@ impl LayerShell for relm4::gtk4::Window {
         gtk4_layer_shell::set_anchor(&self, edge, anchor_to_edge);
     }
 }
+
+impl LayerShell for relm4::gtk4::Window {}
